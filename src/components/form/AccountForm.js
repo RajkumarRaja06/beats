@@ -15,8 +15,7 @@ import { auth, provider } from '../../utils/firebase';
 
 const AccountForm = () => {
   const { isFormOpen, toggleForm } = useContext(commonContext);
-  const { inputValues, handleInputValues } = useForm();
-
+  const [userData, setUserData] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confPassword, setConfPassword] = useState(null);
@@ -41,6 +40,7 @@ const AccountForm = () => {
   const googleLogin = async () => {
     toggleForm(false);
     const { user } = await signInWithPopup(auth, provider);
+    setUserData(user);
     fetchProfileData();
   };
 
@@ -49,6 +49,7 @@ const AccountForm = () => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        setUserData(user);
         fetchProfileData();
         clearInputField();
         toggleForm(false);
@@ -65,8 +66,8 @@ const AccountForm = () => {
     e.preventDefault();
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log('login', userCredential);
         const user = userCredential.user;
+        setUserData(user);
         fetchProfileData();
         clearInputField();
         toggleForm(false);

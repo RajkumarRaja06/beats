@@ -6,9 +6,9 @@ import {
   useReducer,
 } from 'react';
 
-import { signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
-import { auth, provider } from '../../utils/firebase';
+import { auth } from '../../utils/firebase';
 import { storage } from '../../utils/firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { getProfileData } from '../../utils/firebaseFunction';
