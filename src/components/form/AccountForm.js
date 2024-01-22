@@ -103,7 +103,7 @@ const AccountForm = () => {
                 <p>
                   {isSignupVisible
                     ? 'Already have an account ?'
-                    : 'New to X-Beat ?'}
+                    : 'New to Beats ?'}
                   &nbsp;&nbsp;
                   <button type='button' onClick={handleIsSignupVisible}>
                     {isSignupVisible ? 'Login' : 'Create an account'}
