@@ -1,7 +1,6 @@
 import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import commonContext from '../../contexts/common/commonContext';
-import useForm from '../../hooks/useForm';
 import useOutsideClose from '../../hooks/useOutsideClose';
 import useScrollDisable from '../../hooks/useScrollDisable';
 import { UserProfileConsumer } from '../../contexts/user/userProfileContext';
@@ -41,6 +40,7 @@ const AccountForm = () => {
     toggleForm(false);
     const { user } = await signInWithPopup(auth, provider);
     setUserData(user);
+    // console.log(userData);
     fetchProfileData();
   };
 

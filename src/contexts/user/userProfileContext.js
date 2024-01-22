@@ -54,7 +54,6 @@ const UserProfileProvider = ({ children }) => {
 
   const getUserProfile = () => {
     const filterUser = state.profileData.find((item) => item.email === email);
-    console.log(filterUser);
 
     if (filterUser) {
       if (filterUser === 'undefined') {
